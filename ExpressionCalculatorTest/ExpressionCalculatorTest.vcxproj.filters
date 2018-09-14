@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="..\ExpressionCalculator\Parser.cpp">
+      <Filter>CodeUnderTest</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ExpressionCalculator\Lexer.cpp">
+      <Filter>CodeUnderTest</Filter>
+    </ClCompile>
+    <ClCompile Include="LexerTest.cpp" />
+    <ClCompile Include="ParserTestSimple.cpp" />
+    <ClCompile Include="ParserTestComplex.cpp" />
+    <ClCompile Include="..\ExpressionCalculator\Printer.cpp">
+      <Filter>CodeUnderTest</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ExpressionCalculator\Evaluator.cpp">
+      <Filter>CodeUnderTest</Filter>
+    </ClCompile>
+    <ClCompile Include="EvaluatorTest.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CodeUnderTest">
+      <UniqueIdentifier>{367ddabb-2359-4b6a-945a-1726981b66b6}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

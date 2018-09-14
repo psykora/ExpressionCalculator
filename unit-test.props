@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <CustomBuildAfterTargets>googletest_redist_AfterBuild_Win32_and_v141_and_Debug</CustomBuildAfterTargets>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <CustomBuildAfterTargets>googletest_redist_AfterBuild_Win32_and_v141_and_Release</CustomBuildAfterTargets>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <CustomBuildAfterTargets>googletest_redist_AfterBuild_x64_and_v141_and_Debug</CustomBuildAfterTargets>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <CustomBuildAfterTargets>googletest_redist_AfterBuild_x64_and_v141_and_Release</CustomBuildAfterTargets>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="..\packages\googletest.redist.1.8.2\build\native\googletest.redist.targets" Condition="Exists('..\packages\googletest.redist.1.8.2\build\native\googletest.redist.targets')" />
+    <Import Project="..\packages\googletest.1.8.2\build\native\googletest.targets" Condition="Exists('..\packages\googletest.1.8.2\build\native\googletest.targets')" />
+  </ImportGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <DisableSpecificWarnings>4996;4251;4275</DisableSpecificWarnings>
+      <PreprocessorDefinitions>_SILENCE_TR1_NAMESPACE_DEPRECATION_WARNING;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <CustomBuildStep>
+      <Command>$(TargetPath)
+echo Test finished &gt; $(IntermediateOutputPath)gtest_finished.log</Command>
+      <Message>Running tests...</Message>
+      <Outputs>$(IntermediateOutputPath)gtest_finished.log</Outputs>
+      <TreatOutputAsContent>false</TreatOutputAsContent>
+    </CustomBuildStep>
+  </ItemDefinitionGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\googletest.redist.1.8.2\build\native\googletest.redist.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\googletest.redist.1.8.2\build\native\googletest.redist.targets'))" />
+    <Error Condition="!Exists('..\packages\googletest.1.8.2\build\native\googletest.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\googletest.1.8.2\build\native\googletest.targets'))" />
+  </Target>
+</Project>
