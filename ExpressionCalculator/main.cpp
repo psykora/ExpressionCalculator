@@ -23,6 +23,7 @@ int main(int argc, const char* argv[])
     std::cout << std::endl;
     std::cout << "Enter an expression (e.g. '5 * (3.2 + 4)') and press enter" << std::endl;
     std::cout << std::endl;
+    std::cout << "> ";
 
     for (std::string line; std::getline(std::cin, line);)
     {
@@ -47,9 +48,10 @@ int main(int argc, const char* argv[])
         {
             std::cerr << "Error processing input: " << e.what() << std::endl;
         }
+        
+        std::cout << std::endl;
+        std::cout << "> ";
     }
 
-    if (!quietMode)
-    {
-    }
+    return 0;
 }

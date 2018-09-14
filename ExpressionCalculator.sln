@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ExpressionCalculator", "Exp
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ExpressionCalculatorTest", "ExpressionCalculatorTest\ExpressionCalculatorTest.vcxproj", "{E69C46BE-9212-4D55-9AB1-E4718F18DF40}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{4970A488-40F0-4441-BFB0-90960F54CD3C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -34,6 +36,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E69C46BE-9212-4D55-9AB1-E4718F18DF40} = {4970A488-40F0-4441-BFB0-90960F54CD3C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {82E90045-F2A2-4B03-9D9D-271AC2594EBA}
