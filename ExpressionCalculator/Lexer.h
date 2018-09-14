@@ -5,6 +5,7 @@
 
 namespace lex
 {
+
     struct Number
     {
         double num;
@@ -38,4 +39,5 @@ namespace lex
      * @return next token from the stream or nullptr if EOF
      */
     Token nextToken(std::istream& is);
+
 } // namespace lex

@@ -14,11 +14,13 @@ namespace lex
             return nullptr;
         }
 
+        // ignore all whitespaces
         for (; std::isspace(c); c = is.peek())
         {
             is.get();
         }
 
+        // parser digit
         if (isdigit(c) || c == '.')
         {
             std::string numStr;
@@ -44,12 +46,14 @@ namespace lex
             return RightParenthesis{};
         }
 
+        // operator with lower precedence
         if (c == '+' || c == '-')
         {
             is.get();
             return Op1{static_cast<char>(c)};
         }
 
+        // operator with higher precedence
         if (c == '*' || c == '/')
         {
             is.get();
